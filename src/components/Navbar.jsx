@@ -14,6 +14,7 @@ const Navbar = () => {
   const [activeCategory, setActiveCategory] = useState(null)
   const [activeSub, setActiveSub] = useState(null)
   const [showMega, setShowMega] = useState(false)
+  const [userMenuOpen, setUserMenuOpen] = useState(false)
   const menuRef = useRef(null)
 
   const menus = {
@@ -39,16 +40,26 @@ const Navbar = () => {
     }
   }
 
-  // close menu when clicking outside
+  // close menus when clicking outside
   useEffect(() => {
     const handleClickOutside = (e) => {
       if (menuRef.current && !menuRef.current.contains(e.target)) {
         setShowMega(false)
         setActiveTopMenu(null)
+        setUserMenuOpen(false)
       }
     }
     document.addEventListener('mousedown', handleClickOutside)
     return () => document.removeEventListener('mousedown', handleClickOutside)
+  }, [])
+
+  // close user menu on escape
+  useEffect(() => {
+    const onKey = (e) => {
+      if (e.key === 'Escape') setUserMenuOpen(false)
+    }
+    document.addEventListener('keydown', onKey)
+    return () => document.removeEventListener('keydown', onKey)
   }, [])
 
   return (
@@ -83,15 +94,32 @@ const Navbar = () => {
           {!currentUser ? (
             <NavLink to="/login" className="text-dark text-decoration-none"><i className="fa fa-user-circle me-1"></i> Sign In / Register</NavLink>
           ) : (
-            <div className="dropdown">
-              <button className="btn btn-link text-decoration-none dropdown-toggle text-dark" data-bs-toggle="dropdown" aria-expanded="false">
-                <i className="fa fa-user-circle me-1"></i> {currentUser.name}
+            <div className="position-relative">
+              <button
+                type="button"
+                className="btn btn-link text-decoration-none text-dark p-0 d-flex align-items-center"
+                aria-haspopup="true"
+                aria-expanded={userMenuOpen}
+                onClick={() => setUserMenuOpen(o => !o)}
+              >
+                <i className="fa fa-user-circle me-1"></i> {currentUser.name} <i className="fa fa-caret-down ms-1"></i>
               </button>
-              <ul className="dropdown-menu dropdown-menu-end">
-                <li className="dropdown-item text-muted small">{currentUser.email}</li>
-                <li><hr className="dropdown-divider" /></li>
-                <li><button className="dropdown-item" onClick={()=>{ dispatch(logoutUser()); navigate('/login'); }}>Sign out</button></li>
-              </ul>
+              {userMenuOpen && (
+                <div
+                  className="shadow-sm border rounded-2 bg-white position-absolute end-0 mt-2"
+                  style={{ minWidth: '200px', zIndex: 1000 }}
+                  role="menu"
+                >
+                  <div className="px-3 py-2 small text-muted" style={{ wordBreak: 'break-all' }}>{currentUser.email}</div>
+                  <hr className="my-0" />
+                  <button
+                    className="btn btn-light w-100 text-start px-3 py-2"
+                    onClick={() => { dispatch(logoutUser()); setUserMenuOpen(false); navigate('/login'); }}
+                  >
+                    <i className="fa fa-sign-out me-2 text-danger"></i> Sign out
+                  </button>
+                </div>
+              )}
             </div>
           )}
           <NavLink to="/cart" className="text-dark text-decoration-none position-relative">
