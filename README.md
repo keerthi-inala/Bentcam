@@ -2,7 +2,8 @@
 
 Bentcam - Energy-saving antiperspirant constructions that do not require resistance.
 
-
+Frontend - React
+Backend - Java
 ## Features
 
 - Easy to integrate with Backend
@@ -34,7 +35,6 @@ Start the server
 ```bash
   npm start
 ```
-
 
 
 ## Tech Stack
