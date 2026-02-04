@@ -86,7 +86,7 @@ public class AuthController {
                     .body(Map.of("message", "Unauthorized"));
         }
         String token = auth.substring("Bearer ".length());
-        // Idempotent revoke: remove if present
+        // Idempotent revoke: remove if present...
         authService.revoke(token);
         return ResponseEntity.noContent().build();
     }
