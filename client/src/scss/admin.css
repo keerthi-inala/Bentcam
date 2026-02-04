@@ -1,0 +1,31 @@
+/* Admin portal layout helpers */
+
+:root {
+  --navbar-height: 60px;
+  --footer-height: 56px;
+}
+
+/* Main admin shell: take full viewport minus navbar + footer */
+.admin-shell {
+  height: calc(100vh - var(--navbar-height) - var(--footer-height));
+}
+
+/* Ensure the sticky sidebar sits below the main navbar */
+.admin-sidebar.sticky-top {
+  top: var(--navbar-height);
+  z-index: 1010;
+}
+
+/* Middle content should scroll within available height */
+.admin-content {
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+@media (max-width: 992px) {
+  :root {
+    --navbar-height: 64px;
+    --footer-height: 56px;
+  }
+}
