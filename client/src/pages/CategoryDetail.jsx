@@ -32,8 +32,7 @@ const CategoryDetail = () => {
     }
     
     // Removed unused subcategories and handleSubcategoryClick
-    }
-
+    // Removed unused subcategories and handleSubcategoryClick
     return (
         <>
             <div className="container my-4">
