@@ -12,7 +12,7 @@ const CategoryProducts = () => {
     const menuSlug = category
     const categorySlug = subcategory || ''
     const [products, setProducts] = useState([])
-    const [loading, setLoading] = useState(false)
+    // Removed unused loading state
 
     const buildImageUrl = (url) => {
         if (!url) return 'https://images.unsplash.com/photo-1578749556568-bc2c40e68b61?w=300&q=80'
@@ -76,7 +76,7 @@ const CategoryProducts = () => {
                             <div className="card-body">
                                 <div className="d-flex justify-content-between align-items-center mb-3">
                                     <h5 className="fw-bold mb-0">Filters</h5>
-                                    <a href="#" className="text-muted small">Clear</a>
+                                    <button className="text-muted small btn btn-link p-0" type="button" aria-label="Clear Filter">Clear</button>
                                 </div>
                                 
                                 {/* Filter Sections */}

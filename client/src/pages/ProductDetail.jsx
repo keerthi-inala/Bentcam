@@ -56,7 +56,7 @@ const ProductDetail = () => {
             finally { setLoading(false) }
         }
         load()
-    }, [decodedProductName, category])
+    }, [decodedProductName, category, isNumericId])
 
     return (
         <>

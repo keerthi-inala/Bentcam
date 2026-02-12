@@ -72,7 +72,7 @@ const AdminProducts = () => {
       } catch (_) { setCategoryOptions([]) }
     }
     fetchCategories()
-  }, [menu])
+  }, [menu, category])
 
   const validateForm = () => {
     const { ok, errors } = validateCreate({ name, part, price, menu, category, imageFile }, products)
@@ -211,7 +211,7 @@ const AdminProducts = () => {
       setCategoryOptions([])
       setEditing({ ...editing, category: '' })
     }
-  }, [editing?.menu])
+  }, [editing, editing?.menu])
 
   const onUpdate = async (e) => {
     e.preventDefault()
@@ -314,7 +314,7 @@ const AdminProducts = () => {
           </thead>
           <tbody>
             {products.map(p => (
-              <tr key={p.id} scope="row">
+              <tr key={p.id}>
                 <td>{p.id}</td>
                 <td className='text-wrap'>{p.name}</td>
                 <td>{p.part}</td>
@@ -329,7 +329,7 @@ const AdminProducts = () => {
               </tr>
             ))}
             {!loading && products.length === 0 && (
-              <tr scope="row"><td colSpan={5} className="text-center">No products</td></tr>
+                <tr><td colSpan={5} className="text-center">No products</td></tr>
             )}
           </tbody>
         </table>

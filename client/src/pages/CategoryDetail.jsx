@@ -2,7 +2,7 @@ import React from 'react'
 import { useParams, NavLink, useNavigate } from 'react-router-dom'
  
 import categoryData from '../data/featuredProducts'
-import { categoryMap, categorySlugMap } from '../data/categoryMapping'
+import { categoryMap } from '../data/categoryMapping'
 
 const CategoryDetail = () => {
     const { category } = useParams()
@@ -31,10 +31,7 @@ const CategoryDetail = () => {
         'Refrigeration & Air-Handling': ['Compressor Unit', 'Condenser Coil', 'Evaporator', 'Expansion Valve', 'Airflow Fan']
     }
     
-    const subcategories = subcategoriesMap[categoryName] || []
-    
-    const handleSubcategoryClick = (subcategory) => {
-        navigate(`/category/${category}/${subcategory}`)
+    // Removed unused subcategories and handleSubcategoryClick
     }
 
     return (

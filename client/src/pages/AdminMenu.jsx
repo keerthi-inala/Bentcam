@@ -343,7 +343,7 @@ const AdminMenu = () => {
           <tbody>
             {menus.map(m => (
               <React.Fragment key={m.id}>
-                <tr scope="row">
+                <tr>
                   <td>{m.id}</td>
                   <>
                     <td>{m.name}</td>
@@ -375,7 +375,7 @@ const AdminMenu = () => {
                             </thead>
                             <tbody>
                               {categories.map(c => (
-                                <tr key={c.id} scope="row">
+                                <tr key={c.id}>
                                   <td>{c.id}</td>
                                   <>
                                     <td>{c.name}</td>

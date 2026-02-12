@@ -88,7 +88,7 @@ const Navbar = () => {
           <ul className="list-unstyled d-flex mb-0 small">
             <li className="me-3"><a href="/about" className="text-white text-decoration-none">About Us</a></li>
             <li className="me-3"><a href="/contact" className="text-white text-decoration-none">Contact Us</a></li>
-            <li className="me-3 border-start ps-3"><a href="#" className="text-white text-decoration-none">EN</a></li>
+              <li className="me-3 border-start ps-3"><button className="text-white text-decoration-none btn btn-link p-0" type="button" aria-label="Language">EN</button></li>
           </ul>
         </div>
       )}
