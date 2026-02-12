@@ -12,8 +12,7 @@ const CategoryProducts = () => {
     const menuSlug = category
     const categorySlug = subcategory || ''
     const [products, setProducts] = useState([])
-    // Removed unused loading state
-
+    
     const buildImageUrl = (url) => {
         if (!url) return 'https://images.unsplash.com/photo-1578749556568-bc2c40e68b61?w=300&q=80'
         if (url.startsWith('/uploads/')) return `http://localhost:8080${url}`
@@ -44,7 +43,6 @@ const CategoryProducts = () => {
     useEffect(() => {
         const load = async () => {
             try {
-                setLoading(true)
                 const res = await fetch('/api/products')
                 const data = await res.json()
                 const arr = Array.isArray(data) ? data : []
@@ -52,7 +50,7 @@ const CategoryProducts = () => {
                 setProducts(filtered)
             } catch (_) {
                 setProducts([])
-            } finally { setLoading(false) }
+            }
         }
         load()
     }, [menuSlug, categorySlug])

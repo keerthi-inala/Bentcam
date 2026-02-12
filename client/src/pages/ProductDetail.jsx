@@ -10,7 +10,6 @@ const ProductDetail = () => {
     const navigate = useNavigate()
     const dispatch = useDispatch()
     const [product, setProduct] = useState(null)
-    // Removed unused loading state
     const decodedProductName = decodeURIComponent(productName)
     const isNumericId = /^[0-9]+$/.test(decodedProductName)
 
@@ -37,7 +36,6 @@ const ProductDetail = () => {
     useEffect(() => {
         const load = async () => {
             try {
-                setLoading(true)
                 if (isNumericId) {
                     const res = await fetch(`/api/products/${decodedProductName}`)
                     if (res.ok) {
@@ -53,7 +51,6 @@ const ProductDetail = () => {
                     setProduct(found || null)
                 }
             } catch (_) { setProduct(null) }
-            finally { setLoading(false) }
         }
         load()
     }, [decodedProductName, category, isNumericId])
