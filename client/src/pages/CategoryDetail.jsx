@@ -20,16 +20,7 @@ const CategoryDetail = () => {
         products: []
     }
     
-    // Subcategories mapping
-    const subcategoriesMap = {
-        'Motors & Components': ['Motor', 'Motor Assy', 'Fan Blade', 'Bracket-Motor', 'Guard'],
-        'Doors, Glass & Components': ['Door Frame', 'Glass Panel', 'Door Handle', 'Gasket Seal', 'Hinge Assembly'],
-        'Controls & Electrical': ['Relay Switch', 'Sensor Unit', 'Controller', 'LED Display', 'Power Supply'],
-        'Hardware & Fittings': ['Adapter', 'Bearing', 'Bolt Set', 'Bracket', 'Fastener Kit'],
-        'Panels & Trim': ['Side Panel', 'Top Trim', 'Bottom Panel', 'Trim Strip', 'Edge Guard'],
-        'Pans & Racks': ['Refrigeration Pan', 'Wire Rack', 'Food Pan', 'Shelf Rack', 'Storage Bin'],
-        'Refrigeration & Air-Handling': ['Compressor Unit', 'Condenser Coil', 'Evaporator', 'Expansion Valve', 'Airflow Fan']
-    }
+    // Removed unused subcategoriesMap
     
     // Removed unused subcategories and handleSubcategoryClick
     // Removed unused subcategories and handleSubcategoryClick

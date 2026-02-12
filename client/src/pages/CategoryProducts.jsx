@@ -12,7 +12,7 @@ const CategoryProducts = () => {
     const menuSlug = category
     const categorySlug = subcategory || ''
     const [products, setProducts] = useState([])
-    const [loading, setLoading] = useState(false)
+    // Removed unused loading state
 
     const buildImageUrl = (url) => {
         if (!url) return 'https://images.unsplash.com/photo-1578749556568-bc2c40e68b61?w=300&q=80'

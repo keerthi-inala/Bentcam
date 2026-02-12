@@ -10,7 +10,7 @@ const ProductDetail = () => {
     const navigate = useNavigate()
     const dispatch = useDispatch()
     const [product, setProduct] = useState(null)
-    const [loading, setLoading] = useState(false)
+    // Removed unused loading state
     const decodedProductName = decodeURIComponent(productName)
     const isNumericId = /^[0-9]+$/.test(decodedProductName)
 
